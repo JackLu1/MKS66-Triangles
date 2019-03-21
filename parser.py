@@ -17,12 +17,12 @@ The file follows the following format:
               takes 6 arguemnts (x, y, z, width, height, depth)	    
          clear: clears the edge and POLYGON matrices
 
-	 circle: add a circle to the edge matrix - 
-	         takes 4 arguments (cx, cy, cz, r)
-	 hermite: add a hermite curve to the edge matrix -
-	          takes 8 arguments (x0, y0, x1, y1, rx0, ry0, rx1, ry1)
-	 bezier: add a bezier curve to the edge matrix -
-	         takes 8 arguments (x0, y0, x1, y1, x2, y2, x3, y3)
+         circle: add a circle to the edge matrix - 
+                 takes 4 arguments (cx, cy, cz, r)
+         hermite: add a hermite curve to the edge matrix -
+                  takes 8 arguments (x0, y0, x1, y1, rx0, ry0, rx1, ry1)
+         bezier: add a bezier curve to the edge matrix -
+                 takes 8 arguments (x0, y0, x1, y1, x2, y2, x3, y3)
          line: add a line to the edge matrix -
                takes 6 arguemnts (x0, y0, z0, x1, y1, z1)
          ident: set the transform matrix to the identity matrix -
@@ -69,14 +69,14 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
         if line == 'sphere':
             #print 'SPHERE\t' + str(args)
             add_sphere(edges,
-                       float(args[0]), float(args[1]), float(args[2]),
-                       float(args[3]), step_3d)
+                    float(args[0]), float(args[1]), float(args[2]),
+                    float(args[3]), step_3d)
 
         elif line == 'torus':
             #print 'TORUS\t' + str(args)
             add_torus(edges,
-                      float(args[0]), float(args[1]), float(args[2]),
-                      float(args[3]), float(args[4]), step_3d)
+                    float(args[0]), float(args[1]), float(args[2]),
+                    float(args[3]), float(args[4]), step_3d)
 
         elif line == 'box':
             #print 'BOX\t' + str(args)
@@ -87,24 +87,24 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
         elif line == 'circle':
             #print 'CIRCLE\t' + str(args)
             add_circle(edges,
-                       float(args[0]), float(args[1]), float(args[2]),
-                       float(args[3]), step)
+                    float(args[0]), float(args[1]), float(args[2]),
+                    float(args[3]), step)
 
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
             add_curve(edges,
-                      float(args[0]), float(args[1]),
-                      float(args[2]), float(args[3]),
-                      float(args[4]), float(args[5]),
-                      float(args[6]), float(args[7]),
-                      step, line)
+                    float(args[0]), float(args[1]),
+                    float(args[2]), float(args[3]),
+                    float(args[4]), float(args[5]),
+                    float(args[6]), float(args[7]),
+                    step, line)
 
         elif line == 'line':
             #print 'LINE\t' + str(args)
 
             add_edge( edges,
-                      float(args[0]), float(args[1]), float(args[2]),
-                      float(args[3]), float(args[4]), float(args[5]) )
+                    float(args[0]), float(args[1]), float(args[2]),
+                    float(args[3]), float(args[4]), float(args[5]) )
 
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
@@ -136,7 +136,7 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
 
         elif line == 'clear':
             edges = []
-            
+
         elif line == 'display' or line == 'save':
             clear_screen(screen)
             draw_lines(edges, screen, color)
@@ -145,5 +145,5 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
                 display(screen)
             else:
                 save_extension(screen, args[0])
-            
+
         c+= 1
