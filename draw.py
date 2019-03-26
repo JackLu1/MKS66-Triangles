@@ -33,7 +33,7 @@ def draw_polygons( polygons, screen, color ):
 
 def add_box( polygons, x, y, z, width, height, depth ):
     x1 = x + width
-    y1 = y + height
+    y1 = y - height
     z1 = z - depth
     #front
     add_polygon(polygons, x, y, z, x1, y, z, x, y1, z)
@@ -41,7 +41,6 @@ def add_box( polygons, x, y, z, width, height, depth ):
     #back
     add_polygon(polygons, x, y, z1, x1, y, z1, x, y1, z1)
     add_polygon(polygons, x, y1, z1, x1, y, z1, x1, y1, z1)
-    #sides
     #right
     add_polygon(polygons, x1, y, z, x1, y, z1, x1, y1, z)
     add_polygon(polygons, x1, y1, z, x1, y, z1, x1, y1, z1)
@@ -54,35 +53,6 @@ def add_box( polygons, x, y, z, width, height, depth ):
     #bot
     add_polygon(polygons, x, y, z, x1, y, z, x1, y, z1)
     add_polygon(polygons, x1, y, z1, x, y, z1, x, y, z)
-
-
-
-
-    #x1 = x + width
-    #y1 = y - height
-    #z1 = z - depth
-    #print x1
-    #print y1
-    #print z1
-    ##front
-    #add_polygon(polygons, x, y, z, x, y1, z, x1, y1, z)
-    #add_polygon(polygons, x, y, z, x1, y1, z, x1, y, z)
-    ##back
-    #add_polygon(polygons, x1, y, z1, x, y1, z1, x, y, z1)
-    #add_polygon(polygons, x1, y, z1, x1, y1, z1, x, y1, z1)
-    ##sides
-    ##right
-    #add_polygon(polygons, x1, y, z, x1, y1, z1, x1, y, z1)
-    #add_polygon(polygons, x1, y, z, x1, y1, z, x1, y1, z1)
-    ##left
-    #add_polygon(polygons, x, y, z1, x, y1, z, x, y, z)
-    #add_polygon(polygons, x, y, z1, x, y1, z1, x, y1, z)
-    ##top
-    #add_polygon(polygons, x, y, z1, x1, y, z, x1, y1, z1)
-    #add_polygon(polygons, x, y, z1, x1, y, z, x1, y, z)
-    ##bot
-    #add_polygon(polygons, x, y1, z, x1, y1, z1, x1, y1, z)
-    #add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
 
 def add_sphere(polygons, cx, cy, cz, r, step ):
     points = generate_sphere(cx, cy, cz, r, step)
