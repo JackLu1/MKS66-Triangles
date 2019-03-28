@@ -63,16 +63,40 @@ def add_sphere(polygons, cx, cy, cz, r, step ):
     longt_stop = step
 
     step+= 1
-    for lat in range(lat_start, lat_stop):
+    for lat in range(lat_start, lat_stop - 1):
         for longt in range(longt_start, longt_stop+1):
             index = lat * step + longt
 
-            add_edge(polygons, points[index][0],
+            print '--------------------------------------'
+            print points[index][0]
+            print points[index][1]
+            print points[index][2]
+            print points[index][0]+1
+            print points[index][1]+1
+            print points[index][2]+1
+            print '--------------------------------------'
+
+            add_polygon(polygons, 
+                     points[index][0],
                      points[index][1],
                      points[index][2],
                      points[index][0]+1,
                      points[index][1]+1,
-                     points[index][2]+1 )
+                     points[index][2]+1,
+                     points[index+step][0],
+                     points[index+step][1],
+                     points[index+step][2])
+            add_polygon(polygons, 
+                     points[index][0],
+                     points[index][1],
+                     points[index][2],
+                     points[index+step][0]+1,
+                     points[index+step][1]+1,
+                     points[index+step][2]+1,
+                     points[index+step][0],
+                     points[index+step][1],
+                     points[index+step][2])
+
 
 def generate_sphere( cx, cy, cz, r, step ):
     points = []
