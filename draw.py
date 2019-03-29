@@ -77,12 +77,12 @@ def add_sphere(polygons, cx, cy, cz, r, step ):
             print '--------------------------------------'
 
             add_polygon(polygons, 
-                     points[index][0],
-                     points[index][1],
-                     points[index][2],
                      points[index][0]+1,
                      points[index][1]+1,
                      points[index][2]+1,
+                     points[index+step][0]+1,
+                     points[index+step][1]+1,
+                     points[index+step][2]+1,
                      points[index+step][0],
                      points[index+step][1],
                      points[index+step][2])
@@ -90,9 +90,9 @@ def add_sphere(polygons, cx, cy, cz, r, step ):
                      points[index][0],
                      points[index][1],
                      points[index][2],
-                     points[index+step][0]+1,
-                     points[index+step][1]+1,
-                     points[index+step][2]+1,
+                     points[index][0]+1,
+                     points[index][1]+1,
+                     points[index][2]+1,
                      points[index+step][0],
                      points[index+step][1],
                      points[index+step][2])
